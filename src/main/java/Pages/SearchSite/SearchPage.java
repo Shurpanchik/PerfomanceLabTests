@@ -1,4 +1,4 @@
-package Pages;
+package Pages.SearchSite;
 
 import org.openqa.selenium.*;
 
@@ -22,7 +22,7 @@ public class SearchPage {
         driver.findElement(searchPanel).submit();
     }
 
-    public void openLink(String link){
-       driver.findElement(By.partialLinkText(link)).click();
+    public void openLink(String text){
+       driver.findElement(By.partialLinkText(text)).click();
     }
 }
