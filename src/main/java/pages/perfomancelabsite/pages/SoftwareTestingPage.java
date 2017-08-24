@@ -1,4 +1,4 @@
-package pages.perfomancelabsite.Pages;
+package pages.perfomancelabsite.pages;
 
 import pages.Page;
 import org.openqa.selenium.By;
@@ -13,7 +13,7 @@ public class SoftwareTestingPage extends Page {
         serviceAutoTesting = By.cssSelector(".entry-content > div:nth-child(1) > div:nth-child(2) > ul:nth-child(1) > li:nth-child(3) > a:nth-child(1)");
     }
 
-    public void goToAvtomatizacijaTestirovanijaPage(){
-        driver.findElement(serviceAutoTesting).click();
+    public By getServiceAutoTesting() {
+        return serviceAutoTesting;
     }
 }

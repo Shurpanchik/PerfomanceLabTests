@@ -1,4 +1,4 @@
-package pages.perfomancelabsite.Top;
+package pages.perfomancelabsite.top;
 
 import pages.Page;
 import org.openqa.selenium.By;
@@ -24,7 +24,11 @@ public class SubTopServices extends Page {
         actions.moveToElement(driver.findElement(root)).build().perform();
     }
 
-    public void goToSectionTesting(){
-        driver.findElement(testing).click();
+    public By getRoot() {
+        return root;
+    }
+
+    public By getTesting() {
+        return testing;
     }
 }
