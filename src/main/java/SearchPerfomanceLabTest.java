@@ -2,7 +2,10 @@ import BrowserObjects.Window;
 import Pages.PerfomanceLabSite.Pages.AvtomatizacijaTestirovanijaPage;
 import Pages.PerfomanceLabSite.Pages.SoftwareTestingPage;
 import Pages.PerfomanceLabSite.Top.SubTopServices;
+import Pages.SearchSite.GoogleSearch;
+import Pages.SearchSite.RamblerSearch;
 import Pages.SearchSite.SearchPage;
+import Pages.SearchSite.YandexSearch;
 import Steps.TestSignatur;
 import org.junit.After;
 import org.junit.Before;
@@ -23,26 +26,20 @@ public class SearchPerfomanceLabTest extends TestSignatur {
 
     @Test
     public void SearchYandex() throws InterruptedException {
-        driver.get("https://yandex.ru/");
-        By searchPanel = By.cssSelector("#text");
-        writeArticle("yandex", searchPanel);
+        writeArticle("yandex",new YandexSearch(driver) );
     }
 
     @Test
     public void SearchRambler() throws InterruptedException {
-        driver.get("https://rambler.ru/");
-        By searchPanel = By.cssSelector("#search_query");
-        writeArticle("rambler", searchPanel);
+        writeArticle("rambler", new RamblerSearch(driver));
     }
     @Test
     public void SearchGoogle() throws InterruptedException {
-        driver.get("https://google.ru/");
-        By searchPanel = By.cssSelector("#lst-ib");
-        writeArticle("google", searchPanel);
+        writeArticle("google", new GoogleSearch(driver));
     }
-    private void writeArticle(String fileName, By searchPanel){
-        SearchPage searchPage = new SearchPage(driver, searchPanel);
-
+    private void writeArticle(String fileName,SearchPage searchPage){
+        // получаем стартовую страницу поиска
+        searchPage.getBasePage();
         // отправляем поисковый запрос перфоманс лаб
         searchPage.sendSearch("perfomance lab");
 

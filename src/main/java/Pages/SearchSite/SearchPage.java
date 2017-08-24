@@ -5,15 +5,16 @@ import org.openqa.selenium.*;
 import java.util.List;
 
 //http://internetka.in.ua/selenium-page-object/
-public class SearchPage {
+public abstract class SearchPage {
 
-    private WebDriver driver;
+    protected WebDriver driver;
 
-    private By searchPanel;
+    protected By searchPanel;
 
-    public SearchPage(WebDriver driver, By searchPanel){
+    protected String baseUrl;
+
+    public SearchPage(WebDriver driver){
         this.driver = driver;
-        this.searchPanel = searchPanel;
     }
 
 
@@ -24,5 +25,9 @@ public class SearchPage {
 
     public void openLink(String text){
        driver.findElement(By.partialLinkText(text)).click();
+    }
+
+    public void getBasePage(){
+        driver.get(baseUrl);
     }
 }
