@@ -1,8 +1,6 @@
-package Pages.SearchSite;
+package pages.searchsites;
 
 import org.openqa.selenium.*;
-
-import java.util.List;
 
 //http://internetka.in.ua/selenium-page-object/
 public abstract class SearchPage {

@@ -1,6 +1,6 @@
-package Pages.PerfomanceLabSite.Top;
+package pages.perfomancelabsite.Top;
 
-import Pages.Page;
+import pages.Page;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.interactions.Actions;

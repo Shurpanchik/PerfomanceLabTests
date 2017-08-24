@@ -1,4 +1,4 @@
-package Pages.SearchSite;
+package pages.searchsites;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;

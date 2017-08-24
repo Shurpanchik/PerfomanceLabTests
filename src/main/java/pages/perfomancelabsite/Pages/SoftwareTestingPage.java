@@ -1,6 +1,6 @@
-package Pages.PerfomanceLabSite.Pages;
+package pages.perfomancelabsite.Pages;
 
-import Pages.Page;
+import pages.Page;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 

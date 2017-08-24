@@ -1,4 +1,4 @@
-package BrowserObjects;
+package browserobjects;
 
 import org.openqa.selenium.WebDriver;
 

@@ -1,23 +1,12 @@
-import BrowserObjects.Window;
-import Pages.PerfomanceLabSite.Pages.AvtomatizacijaTestirovanijaPage;
-import Pages.PerfomanceLabSite.Pages.SoftwareTestingPage;
-import Pages.PerfomanceLabSite.Top.SubTopServices;
-import Pages.SearchSite.GoogleSearch;
-import Pages.SearchSite.RamblerSearch;
-import Pages.SearchSite.SearchPage;
-import Pages.SearchSite.YandexSearch;
-import Steps.TestSignatur;
-import org.junit.After;
-import org.junit.Before;
+import pages.perfomancelabsite.Pages.AvtomatizacijaTestirovanijaPage;
+import pages.perfomancelabsite.Pages.SoftwareTestingPage;
+import pages.perfomancelabsite.Top.SubTopServices;
+import pages.searchsites.GoogleSearch;
+import pages.searchsites.RamblerSearch;
+import pages.searchsites.SearchPage;
+import pages.searchsites.YandexSearch;
 import org.junit.Test;
 import org.openqa.selenium.*;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.interactions.Actions;
-import sun.plugin.services.BrowserService;
-
-import java.io.FileWriter;
-import java.io.IOException;
-import java.util.concurrent.TimeUnit;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.fail;
@@ -47,7 +36,7 @@ public class SearchPerfomanceLabTest extends TestSignatur {
         searchPage.openLink("Перфоманс Лаб - Услуги по тестированию");
 
         // так как сайт компании открывается в соседней вкладке, то переключимся на нее
-        if(! BrowserObjects.Window.isOpenBlankLink(driver, 5, 1, 1)){
+        if(! browserobjects.Window.isOpenBlankLink(driver, 5, 1, 1)){
             fail("В новом окне вкладка с сайтом perfomance lab не появилась");
         }
 
