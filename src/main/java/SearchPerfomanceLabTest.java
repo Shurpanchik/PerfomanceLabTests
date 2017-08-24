@@ -10,6 +10,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.fail;
 
 public class SearchPerfomanceLabTest {
@@ -46,7 +47,7 @@ public class SearchPerfomanceLabTest {
         By searchPanel = By.cssSelector("#lst-ib");
         writeArticle("google", searchPanel);
     }
-    public void writeArticle(String fileName, By searchPanel){
+    private void writeArticle(String fileName, By searchPanel){
         SearchPage searchPage = new SearchPage(driver, searchPanel);
 
         // отправляем поисковый запрос перфоманс лаб
@@ -57,14 +58,9 @@ public class SearchPerfomanceLabTest {
         driver.findElement(By.partialLinkText("Перфоманс Лаб - Услуги по тестированию")).click();
 
         // так как сайт компании открывается в соседней вкладке, то переключимся на нее
-        try {
-            Thread.sleep(5000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
+        if(!isOpenBlankLink(5,1, 1)){
+            fail("В новом окне вкладка с сайтом perfomance lab не появилась");
         }
-
-        String window  = driver.getWindowHandles().toArray()[1].toString();
-        driver.switchTo().window(window);
 
         // подводим курсор к меню Продукты и услуги
         Actions actions = new Actions(driver);
@@ -105,5 +101,24 @@ public class SearchPerfomanceLabTest {
             System.out.println(ex.getMessage());
         }
     }
-
+    private boolean isOpenBlankLink(int maxWaitTimeInSeconds, int periodInSeconds, int indexBlankWindow){
+        int currentTime=0;
+        while (currentTime <= maxWaitTimeInSeconds){
+            try {
+                Thread.sleep(periodInSeconds*1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            try {
+                String window = driver.getWindowHandles().toArray()[indexBlankWindow].toString();
+                driver.switchTo().window(window);
+                currentTime += periodInSeconds;
+                return true;
+            }
+            catch (Exception exx){
+                currentTime += periodInSeconds;
+            }
+        }
+        return false;
+    }
 }
