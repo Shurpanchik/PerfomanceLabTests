@@ -9,7 +9,7 @@ public class SoftwareTestingPage extends Page {
     private By serviceAutoTesting;
 
     public SoftwareTestingPage(WebDriver driver) {
-        super(driver);
+        super();
         serviceAutoTesting = By.cssSelector(".entry-content > div:nth-child(1) > div:nth-child(2) > ul:nth-child(1) > li:nth-child(3) > a:nth-child(1)");
     }
 

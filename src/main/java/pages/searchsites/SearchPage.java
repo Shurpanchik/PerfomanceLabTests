@@ -1,18 +1,17 @@
 package pages.searchsites;
 
 import org.openqa.selenium.*;
+import pages.Page;
 
 //http://internetka.in.ua/selenium-page-object/
-public abstract class SearchPage {
+public abstract class SearchPage extends Page {
 
-    protected WebDriver driver;
 
     protected By searchPanel;
 
     protected String baseUrl;
 
-    public SearchPage(WebDriver driver){
-        this.driver = driver;
+    public SearchPage(){
     }
 
 

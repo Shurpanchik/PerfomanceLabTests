@@ -13,7 +13,7 @@ public class AvtomatizacijaTestirovanijaPage extends Page {
     private By article;
 
     public AvtomatizacijaTestirovanijaPage(WebDriver driver) {
-        super(driver);
+        super();
         article = By.className("content-area");
     }
 

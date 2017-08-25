@@ -5,8 +5,8 @@ import org.openqa.selenium.WebDriver;
 
 public class GoogleSearch extends SearchPage {
 
-    public GoogleSearch(WebDriver driver) {
-        super(driver);
+    public GoogleSearch() {
+        super();
         baseUrl = "https://google.ru/";
         searchPanel = By.cssSelector("#lst-ib");
     }
