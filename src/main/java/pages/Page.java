@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 
 public abstract class Page {
 
-    protected WebDriver driver;
+    private WebDriver driver;
 
     public  Page (){
         this.driver = Driver.getInstance();

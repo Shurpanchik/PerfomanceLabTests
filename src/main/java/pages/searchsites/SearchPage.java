@@ -16,15 +16,15 @@ public abstract class SearchPage extends Page {
 
 
     public void sendSearch(String text){
-        driver.findElement(searchPanel).sendKeys(text);
-        driver.findElement(searchPanel).submit();
+        getDriver().findElement(searchPanel).sendKeys(text);
+        getDriver().findElement(searchPanel).submit();
     }
 
     public void openLink(String text){
-       driver.findElement(By.partialLinkText(text)).click();
+       getDriver().findElement(By.partialLinkText(text)).click();
     }
 
     public void getBasePage(){
-        driver.get(baseUrl);
+        getDriver().get(baseUrl);
     }
 }

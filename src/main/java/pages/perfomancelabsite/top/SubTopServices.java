@@ -20,8 +20,8 @@ public class SubTopServices extends Page {
     }
 
     public void openSubTop(){
-        Actions actions = new Actions(driver);
-        actions.moveToElement(driver.findElement(root)).build().perform();
+        Actions actions = new Actions(getDriver());
+        actions.moveToElement(getDriver().findElement(root)).build().perform();
     }
 
     public By getRoot() {
