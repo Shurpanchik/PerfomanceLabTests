@@ -8,9 +8,8 @@ import pages.searchsites.RamblerSearch;
 import pages.searchsites.SearchPage;
 import pages.searchsites.YandexSearch;
 import org.junit.Test;
-import steps.OpenElementMenuStep;
-import steps.SearchStep;
-import steps.WriteArticleStep;
+import steps.PerfomanceLabSteps;
+import steps.SearchSteps;
 
 import static org.junit.Assert.fail;
 
@@ -34,21 +33,28 @@ public class SearchPerfomanceLabTest extends TestSignatur {
     private void writeArticle(String fileName, SearchPage searchPage) {
 
         WebDriver driver = Driver.getInstance();
+        PerfomanceLabSteps perfomanceLabSteps = new PerfomanceLabSteps();
+        SearchSteps searchSteps = new SearchSteps(searchPage);
 
-        SearchStep searchStep = new SearchStep(driver, searchPage);
+        // ищем ссылку на сайт perfomance lab в выдаче поиска
+        searchSteps.searchPerfomanceLabLink();
 
         // подводим курсор к меню Продукты и услуги
         SubTopServices subTopServices = new SubTopServices();
         subTopServices.openSubTop();
 
         // в меню переходим в раздел тестирование
-        new OpenElementMenuStep(driver, subTopServices.getTesting());
+        perfomanceLabSteps.openElementMenu(subTopServices, subTopServices.getTesting());
 
         // переходим в меню Автоматизация тестирования
-        new OpenElementMenuStep(driver, new SoftwareTestingPage(driver).getServiceAutoTesting());
+
+        SoftwareTestingPage softwareTestingPage = new SoftwareTestingPage();
+        perfomanceLabSteps.openElementMenu(softwareTestingPage, softwareTestingPage.getServiceAutoTesting());
 
         // получаем весь текст из статьи
-        new WriteArticleStep(
-                driver.findElement(new AvtomatizacijaTestirovanijaPage(driver).getArticle()).getText(), fileName);
+        AvtomatizacijaTestirovanijaPage avtomatizacijaTestirovanijaPage = new AvtomatizacijaTestirovanijaPage();
+        perfomanceLabSteps.WriteArticleStep(
+                Driver.getInstance().findElement(avtomatizacijaTestirovanijaPage.getArticle()).getText(),
+                fileName);
     }
 }
