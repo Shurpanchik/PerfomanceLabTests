@@ -2,6 +2,7 @@ package steps;
 
 import helpers.Driver;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import pages.Page;
 import pages.perfomancelabsite.top.SubTopServices;
 
@@ -16,8 +17,8 @@ public class PerfomanceLabSteps {
         SubTopServices subTopServices = new SubTopServices();
         subTopServices.openSubTop();
     }
-    public  void openElementMenu (By element){
-        Driver.getDriver().findElement(element).click();
+    public  void openElementMenu (WebElement element){
+        element.click();
     }
 
     public void WriteArticleStep(String text,String fileName){
@@ -33,9 +34,5 @@ public class PerfomanceLabSteps {
         catch(IOException ex){
             System.out.println(ex.getMessage());
         }
-    }
-
-    public String getText(By element){
-       return Driver.getDriver().findElement(element).getText();
     }
 }
