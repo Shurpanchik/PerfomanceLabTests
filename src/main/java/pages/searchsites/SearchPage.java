@@ -3,6 +3,8 @@ package pages.searchsites;
 import org.openqa.selenium.*;
 import pages.Page;
 
+import static helpers.TestLogger.getLog;
+
 //http://internetka.in.ua/selenium-page-object/
 public abstract class SearchPage extends Page {
 
@@ -15,7 +17,7 @@ public abstract class SearchPage extends Page {
 
 
     public void sendSearch(String text, WebElement searchPanel){
-        System.out.println("Отправляем поисковой запрос: "+text);
+        getLog().info("Отправляем поисковой запрос: "+text);
         searchPanel.sendKeys(text);
         searchPanel.submit();
     }

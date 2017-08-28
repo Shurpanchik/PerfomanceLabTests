@@ -9,23 +9,25 @@ import pages.perfomancelabsite.top.SubTopServices;
 import java.io.FileWriter;
 import java.io.IOException;
 
+import static helpers.TestLogger.getLog;
+
 public class PerfomanceLabSteps {
     public PerfomanceLabSteps(){
 
     }
     public void OpenSubTop(){
-        System.out.println("Открытие верхнего меню");
+        getLog().info("Открытие верхнего меню");
         SubTopServices subTopServices = new SubTopServices();
         subTopServices.openSubTop();
     }
     public  void openElementMenu (WebElement element){
-        System.out.println("Выбираем пункт меню: " +element.getText());
+        getLog().info("Выбираем пункт меню: " +element.getText());
         element.click();
     }
 
     public void WriteArticleStep(String text,String fileName){
         try {
-            System.out.println("Записываем текст статьи в файл: "+fileName);
+            getLog().info("Записываем текст статьи в файл: "+fileName);
             FileWriter writer = new FileWriter(fileName, false);
             try {
                 writer.write(text);

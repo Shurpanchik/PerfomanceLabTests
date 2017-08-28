@@ -9,8 +9,12 @@ import pages.perfomancelabsite.pages.SoftwareTestingPage;
 import pages.perfomancelabsite.top.SubTopServices;
 import pages.searchsites.SearchPage;
 
+import static helpers.TestLogger.getLog;
+
 public class ArticleInPerfomanceFromSearchSteps {
     public void writeArticle(String fileName, SearchPage searchPage) {
+
+        getLog().info("Поиск ссылки perfomance lab и запись статьи в файл ");
 
         PerfomanceLabSteps perfomanceLabSteps = new PerfomanceLabSteps();
         SearchSteps searchSteps = new SearchSteps(searchPage);
@@ -19,7 +23,7 @@ public class ArticleInPerfomanceFromSearchSteps {
         searchSteps.searchPerfomanceLabLink();
 
         // подводим курсор к меню Продукты и услуги
-        SubTopServices subTopServices = PageFactory.initElements(Driver.getDriver(), SubTopServices.class);
+        SubTopServices subTopServices = new SubTopServices();
         subTopServices.openSubTop();
 
         // в меню переходим в раздел тестирование
@@ -27,12 +31,12 @@ public class ArticleInPerfomanceFromSearchSteps {
 
         // переходим в меню Автоматизация тестирования
 
-        SoftwareTestingPage softwareTestingPage = PageFactory.initElements(Driver.getDriver(),SoftwareTestingPage.class );
+        SoftwareTestingPage softwareTestingPage = new SoftwareTestingPage();
         perfomanceLabSteps.openElementMenu(softwareTestingPage.getServiceAutoTesting());
 
         // получаем весь текст из статьи
         AvtomatizacijaTestirovanijaPage avtomatizacijaTestirovanijaPage =
-                PageFactory.initElements(Driver.getDriver(), AvtomatizacijaTestirovanijaPage.class);
+                new AvtomatizacijaTestirovanijaPage();
         WebElement element = avtomatizacijaTestirovanijaPage.getArticle();
         perfomanceLabSteps.WriteArticleStep(
                 avtomatizacijaTestirovanijaPage.getArticle().getText(),

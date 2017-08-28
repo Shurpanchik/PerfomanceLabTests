@@ -14,20 +14,17 @@ public class SearchPerfomanceLabTest extends tests.TestSignatur {
 
     @Test
     public void SearchYandex() throws InterruptedException {
-        articleInPerfomanceFromSearchSteps.writeArticle("yandex",
-                PageFactory.initElements(Driver.getDriver(), YandexSearch.class));
+        articleInPerfomanceFromSearchSteps.writeArticle("yandex", new YandexSearch());
     }
 
     @Test
     public void SearchRambler() throws InterruptedException {
-        articleInPerfomanceFromSearchSteps.writeArticle("rambler",
-                PageFactory.initElements(Driver.getDriver(), RamblerSearch.class));
+        articleInPerfomanceFromSearchSteps.writeArticle("rambler", new RamblerSearch());
     }
 
     @Test
     public void SearchGoogle() throws InterruptedException {
-        articleInPerfomanceFromSearchSteps.writeArticle("google",
-                PageFactory.initElements(Driver.getDriver(),GoogleSearch.class));
+        articleInPerfomanceFromSearchSteps.writeArticle("google", new GoogleSearch());
     }
 
 }

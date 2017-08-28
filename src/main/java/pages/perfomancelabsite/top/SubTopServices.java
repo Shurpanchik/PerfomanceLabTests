@@ -7,6 +7,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.interactions.Actions;
 
+import static helpers.Driver.getDriver;
+import static helpers.TestLogger.getLog;
+
 public class SubTopServices extends Page {
 
 
@@ -22,7 +25,7 @@ public class SubTopServices extends Page {
     }
 
     public void openSubTop(){
-        System.out.println("Подводим курсор к элементу верхнего меню");
+        getLog().info("Подводим курсор к элементу верхнего меню");
         Actions actions = new Actions(getDriver());
         actions.moveToElement(root).build().perform();
     }
