@@ -13,7 +13,7 @@ public abstract class Page extends Driver {
     public  Page (){
     }
     public void openLink(String text){
-
+        System.out.println("Открываем ссылку с текстом: " +text);
         getDriver().findElement(By.partialLinkText(text)).click();
     }
 }

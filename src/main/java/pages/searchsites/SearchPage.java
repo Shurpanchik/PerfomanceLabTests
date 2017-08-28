@@ -15,6 +15,7 @@ public abstract class SearchPage extends Page {
 
 
     public void sendSearch(String text, WebElement searchPanel){
+        System.out.println("Отправляем поисковой запрос: "+text);
         searchPanel.sendKeys(text);
         searchPanel.submit();
     }

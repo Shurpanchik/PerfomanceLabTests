@@ -14,15 +14,18 @@ public class PerfomanceLabSteps {
 
     }
     public void OpenSubTop(){
+        System.out.println("Открытие верхнего меню");
         SubTopServices subTopServices = new SubTopServices();
         subTopServices.openSubTop();
     }
     public  void openElementMenu (WebElement element){
+        System.out.println("Выбираем пункт меню: " +element.getText());
         element.click();
     }
 
     public void WriteArticleStep(String text,String fileName){
         try {
+            System.out.println("Записываем текст статьи в файл: "+fileName);
             FileWriter writer = new FileWriter(fileName, false);
             try {
                 writer.write(text);

@@ -13,6 +13,7 @@ public class SearchSteps {
 
 
     public void searchPerfomanceLabLink(){
+        System.out.println("Находим ссылку perfomance lab в поисковой выдаче");
         // получаем стартовую страницу поиска
         searchPage.getBasePage();
         // отправляем поисковый запрос перфоманс лаб

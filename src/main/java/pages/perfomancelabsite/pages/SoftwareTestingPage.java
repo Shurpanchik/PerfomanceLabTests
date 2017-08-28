@@ -13,10 +13,10 @@ public class SoftwareTestingPage extends Page {
 
     public SoftwareTestingPage() {
         super();
-        //serviceAutoTesting = By.cssSelector(".entry-content > div:nth-child(1) > div:nth-child(2) > ul:nth-child(1) > li:nth-child(3) > a:nth-child(1)");
     }
 
     public WebElement getServiceAutoTesting() {
+
         return serviceAutoTesting;
     }
 }
