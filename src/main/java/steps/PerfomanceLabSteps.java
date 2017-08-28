@@ -17,7 +17,7 @@ public class PerfomanceLabSteps {
         subTopServices.openSubTop();
     }
     public  void openElementMenu (By element){
-        Driver.getInstance().findElement(element).click();
+        Driver.getDriver().findElement(element).click();
     }
 
     public void WriteArticleStep(String text,String fileName){
@@ -36,6 +36,6 @@ public class PerfomanceLabSteps {
     }
 
     public String getText(By element){
-       return Driver.getInstance().findElement(element).getText();
+       return Driver.getDriver().findElement(element).getText();
     }
 }

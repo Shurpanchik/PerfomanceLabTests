@@ -1,25 +1,18 @@
 package helpers;
 
+import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import ru.stqa.selenium.factory.WebDriverPool;
 
 import java.util.concurrent.TimeUnit;
 
 public class Driver {
-    private static WebDriver driver;
-
-    public static synchronized WebDriver getInstance() {
-        if (driver == null) {
-            updateDriver();
-        }
-        return driver;
-    }
-
-    public static void updateDriver() {
-        // Как запустить тесты из firefox под selenium v3
-        //http://learn-automation.com/use-firefox-selenium-using-geckodriver-selenium-3/
+    static {
         System.setProperty("webdriver.gecko.driver","src\\main\\resources\\geckodriver.exe");
-        driver = new FirefoxDriver();
-        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+    }
+    public static WebDriver getDriver() {
+        return WebDriverPool.DEFAULT.getDriver(DesiredCapabilities.firefox());
     }
 }

@@ -18,12 +18,12 @@ public abstract class TestSignatur {
 
     @Before
     public void setUp() throws Exception {
-      Driver.updateDriver();
+        Driver.getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
     }
 
     @After
     public void tearDown() throws Exception{
-        Driver.getInstance().quit();
+        Driver.getDriver().quit();
         String verificationErrorString = verificationErrors.toString();
         if (!"".equals(verificationErrorString)) {
             fail(verificationErrorString);
