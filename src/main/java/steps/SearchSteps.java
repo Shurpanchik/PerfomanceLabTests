@@ -16,7 +16,7 @@ public class SearchSteps {
         // получаем стартовую страницу поиска
         searchPage.getBasePage();
         // отправляем поисковый запрос перфоманс лаб
-        searchPage.sendSearch("perfomance lab");
+        searchPage.sendSearch("perfomance lab", searchPage.getSearchPanel());
 
         //находим ссылку сайта
         searchPage.openLink("Перфоманс Лаб - Услуги по тестированию");
