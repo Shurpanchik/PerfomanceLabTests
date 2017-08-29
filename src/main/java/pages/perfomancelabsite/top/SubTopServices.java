@@ -27,7 +27,8 @@ public class SubTopServices extends Page {
     public void openSubTop(){
         getLog().info("Подводим курсор к элементу верхнего меню");
         Actions actions = new Actions(getDriver());
-        actions.moveToElement(root).build().perform();
+        //actions.moveToElement(root).build().perform();
+        root.click();
     }
 
     public WebElement getRoot() {
