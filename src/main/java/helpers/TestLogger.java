@@ -1,8 +1,7 @@
 package helpers;
 
-import java.util.logging.Logger;
 
-import static java.lang.String.valueOf;
+import org.apache.log4j.Logger;
 
 /*
      Класс логгирования
@@ -10,7 +9,7 @@ import static java.lang.String.valueOf;
  */
 public class TestLogger {
 
-    private static final Logger log = Logger.getLogger(valueOf(TestLogger.class));
+    private static final Logger log = Logger.getLogger(TestLogger.class);
 
     public static Logger getLog() {
         return log;
