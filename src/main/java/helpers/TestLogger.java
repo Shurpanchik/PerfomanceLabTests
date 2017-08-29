@@ -1,16 +1,16 @@
 package helpers;
 
-
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
 
 /*
      Класс логгирования
-     о настройке логгов в этой статье http://artamonov.ru/2007/04/06/vvedenie-v-log4j/
+     о настройке логгов log4j2 в этой статье http://javastudy.ru/log4j/log4j-hello-world-example/
+
  */
 public class TestLogger {
 
-    private static final Logger log = Logger.getLogger(TestLogger.class);
-
+    private static final Logger log = LogManager.getLogger(TestLogger.class);
     public static Logger getLog() {
         return log;
     }
