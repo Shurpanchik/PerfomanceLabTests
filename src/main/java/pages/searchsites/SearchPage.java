@@ -1,5 +1,6 @@
 package pages.searchsites;
 
+import elements.TextField;
 import org.openqa.selenium.*;
 import pages.Page;
 
@@ -10,16 +11,15 @@ public abstract class SearchPage extends Page {
 
     protected String baseUrl;
 
-    private WebElement searchPanel;
+    private TextField searchPanel;
 
     public SearchPage(){
     }
 
 
-    public void sendSearch(String text, WebElement searchPanel){
+    public void sendSearch(String text, TextField searchPanel){
         getLog().info("Отправляем поисковой запрос: "+text);
-        searchPanel.sendKeys(text);
-        searchPanel.submit();
+        searchPanel.submitKeys(text);
     }
 
     public void getBasePage(){
@@ -27,7 +27,9 @@ public abstract class SearchPage extends Page {
     }
 
 
-    public WebElement getSearchPanel() {
+    public TextField getSearchPanel() {
         return searchPanel;
     }
+
+
 }

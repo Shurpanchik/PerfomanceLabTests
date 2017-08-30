@@ -1,5 +1,6 @@
 package steps;
 
+import elements.Element;
 import org.openqa.selenium.WebElement;
 import pages.perfomancelabsite.top.SubTopServices;
 
@@ -17,8 +18,7 @@ public class PerfomanceLabSteps {
         SubTopServices subTopServices = new SubTopServices();
         subTopServices.openSubTop();
     }
-    public  void openElementMenu (WebElement element){
-        getLog().info("Выбираем пункт меню: " +element.getText());
+    public  void openElementMenu (Element element){
         element.click();
     }
 

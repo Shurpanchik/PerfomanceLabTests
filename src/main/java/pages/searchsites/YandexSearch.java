@@ -1,5 +1,6 @@
 package pages.searchsites;
 
+import elements.TextField;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -8,7 +9,7 @@ import org.openqa.selenium.support.FindBy;
 public class YandexSearch extends SearchPage {
 
     @FindBy(css = "#text")
-    WebElement searchPanel;
+    TextField searchPanel;
 
     public YandexSearch() {
         super();
@@ -16,7 +17,7 @@ public class YandexSearch extends SearchPage {
     }
 
     @Override
-    public WebElement getSearchPanel() {
+    public TextField getSearchPanel() {
         return searchPanel;
     }
 }
