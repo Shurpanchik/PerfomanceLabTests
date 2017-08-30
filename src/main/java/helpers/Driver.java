@@ -8,7 +8,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
 import com.codeborne.selenide.WebDriverRunner;
-import ru.stqa.selenium.factory.WebDriverPool;
+
 
 
 import java.util.concurrent.TimeUnit;

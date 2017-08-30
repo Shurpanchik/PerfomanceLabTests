@@ -1,9 +1,6 @@
 package steps;
 
-import helpers.Driver;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import pages.Page;
 import pages.perfomancelabsite.top.SubTopServices;
 
 import java.io.FileWriter;

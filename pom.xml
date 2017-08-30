@@ -17,29 +17,7 @@
         </dependency>
 
 
-        <dependency>
-            <groupId>org.seleniumhq.selenium</groupId>
-            <artifactId>selenium-api</artifactId>
-            <version>RELEASE</version>
-        </dependency>
-        <dependency>
-            <groupId>org.seleniumhq.selenium</groupId>
-            <artifactId>selenium-firefox-driver</artifactId>
-            <version>RELEASE</version>
-        </dependency>
-
-        <dependency>
-            <groupId>ru.stqa.selenium</groupId>
-            <artifactId>webdriver-factory</artifactId>
-            <version>4.2</version>
-        </dependency>
-        <dependency>
-            <groupId>org.seleniumhq.selenium</groupId>
-            <artifactId>selenium-java</artifactId>
-            <version>3.4.0</version>
-        </dependency>
-
-        <!--selenide 2-->
+        <!--selenide -->
         <dependency>
             <groupId>com.codeborne</groupId>
             <artifactId>selenide</artifactId>
@@ -59,6 +37,8 @@
             <artifactId>log4j-core</artifactId>
             <version>2.4.1</version>
         </dependency>
+
+        <!--selenide -->
         <dependency>
             <groupId>com.codeborne</groupId>
             <artifactId>selenide</artifactId>
