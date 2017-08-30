@@ -23,7 +23,7 @@ public abstract class TestSignatur {
 
     @After
     public void tearDown() throws Exception{
-        Driver.getDriver().quit();
+        Driver.close();
         String verificationErrorString = verificationErrors.toString();
         if (!"".equals(verificationErrorString)) {
             fail(verificationErrorString);
