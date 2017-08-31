@@ -1,7 +1,10 @@
 package steps;
 
+import Listener.EventListener;
 import elements.Element;
 import helpers.Driver;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import pages.Page;
@@ -11,12 +14,12 @@ import pages.perfomancelabsite.top.SubTopServices;
 import pages.searchsites.SearchPage;
 
 import static com.codeborne.selenide.Selenide.page;
-import static helpers.TestLogger.getLog;
 
 public class ArticleInPerfomanceFromSearchSteps {
+    private static final Logger logger = LogManager.getLogger(ArticleInPerfomanceFromSearchSteps .class);
     public void writeArticle(String fileName, SearchPage searchPage) {
 
-        getLog().info("Поиск ссылки perfomance lab и запись статьи в файл ");
+        logger.info("Поиск ссылки perfomance lab и запись статьи в файл ");
 
         PerfomanceLabSteps perfomanceLabSteps = new PerfomanceLabSteps();
         SearchSteps searchSteps = new SearchSteps(searchPage);

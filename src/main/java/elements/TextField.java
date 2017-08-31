@@ -1,9 +1,10 @@
 package elements;
 
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebElement;
 
-import static helpers.TestLogger.getLog;
 
 /**
  * Класс для работы с элементами TextField
@@ -17,13 +18,14 @@ public class TextField extends Element {
      *
      * @param text текст для заполнения
      */
-    @Override
+    private static final Logger logger = LogManager.getLogger(TextField.class);
+
     public void submitKeys(String text) {
         try {
-            getLog().info("Заполнение поля " + getLocator() + " данными: " + text);
+            logger.info("Заполнение поля " + getLocator() + " данными: " + text);
             flash(getSelf()).setValue(text).submit();
         } catch (Exception e) {
-            getLog().error(e.getMessage());
+            logger.error(e.getMessage());
         }
     }
 }

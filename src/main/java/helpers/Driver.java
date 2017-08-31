@@ -21,9 +21,6 @@ public class Driver {
         Configuration.browser = "Marionette";
         WebDriverRunner.addListener(new EventListener());
     }
-    public static WebDriver getDriver() {
-        return WebDriverRunner.getWebDriver();
-    }
     public static void close(){
         WebDriverRunner.closeWebDriver();
     }

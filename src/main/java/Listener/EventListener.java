@@ -1,15 +1,16 @@
 package Listener;
 
+import helpers.ReflectionData;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.events.WebDriverEventListener;
 
-import static helpers.TestLogger.getLog;
-
 public class EventListener implements WebDriverEventListener {
 
-
+    private static final Logger logger = LogManager.getLogger(EventListener.class);
     public void beforeAlertAccept(WebDriver webDriver) {
     }
 
@@ -64,7 +65,7 @@ public class EventListener implements WebDriverEventListener {
     }
 
     public void beforeClickOn(WebElement webElement, WebDriver webDriver) {
-        getLog().info("Клик по элементу: "+webElement.getText());
+        logger.info("Клик по элементу: "+webElement.getText());
     }
 
     public void afterClickOn(WebElement webElement, WebDriver webDriver) {
@@ -88,6 +89,6 @@ public class EventListener implements WebDriverEventListener {
     }
 
     public void onException(Throwable throwable, WebDriver webDriver) {
-        getLog().error(throwable.getMessage());
+        logger.error(throwable.getMessage());
     }
 }

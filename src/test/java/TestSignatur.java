@@ -18,7 +18,6 @@ public abstract class TestSignatur {
 
     @Before
     public void setUp() throws Exception {
-        Driver.getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
     }
 
     @After
@@ -29,5 +28,4 @@ public abstract class TestSignatur {
             fail(verificationErrorString);
         }
     }
-
 }

@@ -1,15 +1,21 @@
 package pages.searchsites;
 
+import elements.Element;
 import elements.TextField;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.*;
 import pages.Page;
 
-import static helpers.TestLogger.getLog;
+import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
+
 
 //http://internetka.in.ua/selenium-page-object/
 public abstract class SearchPage extends Page {
 
     protected String baseUrl;
+
+    private static final Logger logger = LogManager.getLogger(SearchPage.class);
 
     private TextField searchPanel;
 
@@ -18,12 +24,12 @@ public abstract class SearchPage extends Page {
 
 
     public void sendSearch(String text, TextField searchPanel){
-        getLog().info("Отправляем поисковой запрос: "+text);
+        logger.info("Отправляем поисковой запрос: "+text);
         searchPanel.submitKeys(text);
     }
 
     public void getBasePage(){
-        getDriver().get(baseUrl);
+        getWebDriver().get(baseUrl);
     }
 
 
