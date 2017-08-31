@@ -21,7 +21,7 @@ public class TextField extends Element {
     public void submitKeys(String text) {
         try {
             getLog().info("Заполнение поля " + getLocator() + " данными: " + text);
-            getSelf().setValue(text).submit();
+            flash(getSelf()).setValue(text).submit();
         } catch (Exception e) {
             getLog().error(e.getMessage());
         }
