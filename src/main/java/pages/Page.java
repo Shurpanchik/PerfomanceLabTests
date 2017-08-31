@@ -15,23 +15,23 @@ import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 import static com.codeborne.selenide.Selenide.page;
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
+import static com.codeborne.selenide.WebDriverRunner.url;
 
-public abstract class Page {
+public abstract class Page{
 
-    protected String baseUrl;
-    public  Page (String baseUrl){
-        this.baseUrl = baseUrl;
+    public Page(String baseUrl) {
+        this.openPage(baseUrl);
         page(this);
     }
-    public  Page (){
-        page(this);
-    }
-    public void openLink(String text){
+
+    public void openLink(String text) {
+        //getLog().info("Открываем ссылку с текстом: " + text);
         $(By.partialLinkText(text)).click();
     }
 
-    public void getBasePage(){
-        getWebDriver().get(baseUrl);
+    public void openPage(String baseUrl){
+        if (!url().contains(baseUrl)){
+            open(baseUrl);
+        }
     }
-
 }

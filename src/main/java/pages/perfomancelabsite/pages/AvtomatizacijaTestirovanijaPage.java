@@ -18,7 +18,7 @@ public class AvtomatizacijaTestirovanijaPage extends Page {
     SubTopServices subTopServices;
 
     public AvtomatizacijaTestirovanijaPage() {
-        super();
+        super("http://www.performance-lab.ru/avtomatizacija-testirovanija");
         SubTopServices subTopServices = new SubTopServices();
     }
 

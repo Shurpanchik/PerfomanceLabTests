@@ -13,7 +13,7 @@ public abstract class TestSignatur {
 
     @Before
     public void setUp() throws Exception {
-
+        new Driver();
     }
 
     @After

@@ -17,7 +17,7 @@ public class SoftwareTestingPage extends Page {
     private Element serviceAutoTesting;
 
     public SoftwareTestingPage() {
-        super();
+        super("http://www.performance-lab.ru/software-testing");
     }
 
 }

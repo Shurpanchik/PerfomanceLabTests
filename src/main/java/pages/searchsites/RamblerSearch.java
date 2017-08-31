@@ -11,6 +11,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import pages.Page;
 
+import static com.codeborne.selenide.Selenide.open;
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 
 @Getter
@@ -32,5 +33,7 @@ public class RamblerSearch extends Page {
         logger.info("Отправляем поисковой запрос: "+text);
         searchPanel.submitKeys(text);
     }
-
+    public  void getBasePage(){
+        open("https://rambler.ru/");
+    }
 }
