@@ -17,12 +17,12 @@ import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 
 @Getter
 @Setter
-public class SubTopServices extends Page {
+public class SubTopServices {
 
     private static final Logger logger = LogManager.getLogger(SubTopServices.class);
 
     @FindBy(xpath = "//*[@id=\"menu-item-317\"]/a")
-    protected Element root;
+    private Element root;
 
     @FindBy(css =".one_item_menu > div:nth-child(1) > li:nth-child(1) > a:nth-child(1)")
     private Element testing;

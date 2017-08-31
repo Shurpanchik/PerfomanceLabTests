@@ -5,10 +5,14 @@ import elements.Element;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebElement;
+import pages.perfomancelabsite.pages.AvtomatizacijaTestirovanijaPage;
+import pages.perfomancelabsite.pages.SoftwareTestingPage;
 import pages.perfomancelabsite.top.SubTopServices;
 
 import java.io.FileWriter;
 import java.io.IOException;
+
+import static com.codeborne.selenide.Selenide.page;
 
 
 public class PerfomanceLabSteps {
@@ -18,16 +22,11 @@ public class PerfomanceLabSteps {
     public PerfomanceLabSteps(){
 
     }
-    public void OpenSubTop(){
-        logger.info("Открытие верхнего меню");
-        SubTopServices subTopServices = new SubTopServices();
-        subTopServices.openSubTop();
-    }
     public  void openElementMenu (Element element){
         element.click();
     }
 
-    public void WriteArticleStep(String text,String fileName){
+    public void writeArticleStep(String text,String fileName){
         try {
             logger.info("Записываем текст статьи в файл: "+fileName);
             FileWriter writer = new FileWriter(fileName, false);
@@ -41,5 +40,33 @@ public class PerfomanceLabSteps {
         catch(IOException ex){
             System.out.println(ex.getMessage());
         }
+    }
+
+    /**
+     * @param fileName
+     */
+    public void findArticle(String fileName) {
+
+        logger.info("Поиск ссылки perfomance lab и запись статьи в файл ");
+
+        // подводим курсор к меню Продукты и услуги
+        SubTopServices subTopServices = page(SubTopServices.class);
+        subTopServices.openSubTop();
+
+        // в меню переходим в раздел тестирование
+        openElementMenu(subTopServices.getTesting());
+
+        // переходим в меню Автоматизация тестирования
+
+        SoftwareTestingPage softwareTestingPage = page(SoftwareTestingPage.class);
+        openElementMenu(softwareTestingPage.getServiceAutoTesting());
+
+        // получаем весь текст из статьи
+        AvtomatizacijaTestirovanijaPage avtomatizacijaTestirovanijaPage =
+                page(AvtomatizacijaTestirovanijaPage.class);
+        Element element = avtomatizacijaTestirovanijaPage.getArticle();
+        writeArticleStep(
+                avtomatizacijaTestirovanijaPage.getArticle().getText(),
+                fileName);
     }
 }

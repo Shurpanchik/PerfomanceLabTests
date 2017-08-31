@@ -2,32 +2,52 @@ package steps;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.openqa.selenium.WebDriver;
-import pages.searchsites.SearchPage;
+import pages.searchsites.GoogleSearch;
+import pages.searchsites.RamblerSearch;
+import pages.searchsites.YandexSearch;
 
+import static com.codeborne.selenide.Selenide.page;
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 import static org.junit.Assert.fail;
 
 public class SearchSteps {
-    SearchPage searchPage;
     private static final Logger logger = LogManager.getLogger(PerfomanceLabSteps.class);
-    public SearchSteps(SearchPage searchPage){
-        this.searchPage = searchPage;
-    }
 
-
-    public void searchPerfomanceLabLink(){
+    public  void searchYandex(){
+        YandexSearch yandexSearch = page(YandexSearch.class);
         logger.info("Находим ссылку perfomance lab в поисковой выдаче");
-        searchPage.getBasePage();
+        yandexSearch.getBasePage();
         // отправляем поисковый запрос перфоманс лаб
-        searchPage.sendSearch("perfomance lab", searchPage.getSearchPanel());
+        yandexSearch.sendSearch("perfomance lab");
 
         //находим ссылку сайта
-        searchPage.openLink("Перфоманс Лаб - Услуги по тестированию");
+        yandexSearch.openLink("Перфоманс Лаб - Услуги по тестированию");
 
-        // так как сайт компании открывается в соседней вкладке, то переключимся на нее
-        if (!browserobjects.Window.isOpenBlankLink(getWebDriver(), 5, 1, 1)) {
-            fail("В новом окне вкладка с сайтом perfomance lab не появилась");
-        }
+
+    }
+
+    public  void searchGoogle(){
+        GoogleSearch googleSearch = page(GoogleSearch.class);
+        logger.info("Находим ссылку perfomance lab в поисковой выдаче");
+        googleSearch.getBasePage();
+        // отправляем поисковый запрос перфоманс лаб
+        googleSearch.sendSearch("perfomance lab");
+
+        //находим ссылку сайта
+        googleSearch.openLink("Перфоманс Лаб - Услуги по тестированию");
+
+
+    }
+    public  void searchRambler(){
+        RamblerSearch ramblerSearch = page(RamblerSearch.class);
+        logger.info("Находим ссылку perfomance lab в поисковой выдаче");
+        ramblerSearch.getBasePage();
+        // отправляем поисковый запрос перфоманс лаб
+        ramblerSearch.sendSearch("perfomance lab");
+
+        //находим ссылку сайта
+        ramblerSearch.openLink("Перфоманс Лаб - Услуги по тестированию");
+
+
     }
 }
