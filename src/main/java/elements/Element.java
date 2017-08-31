@@ -58,15 +58,14 @@ public class Element extends ElementsContainer implements AbstractElement {
     }
 
     /**
-     * Подсветка активного элемента + фокус
+     * фокус
      *
      * @param element Объект класса SelenideElement
      * @return Для обеспечения возможность сразу работать с элементом, возвращаем ссылку на него же
      */
     static SelenideElement flash(SelenideElement element) {
         String bgColor = element.getCssValue("backgroundColor");
-        changeColor(element, "#00FF00");
-        changeColor(element, bgColor);
+        changeFocus(element);
         return element;
     }
 
@@ -74,10 +73,8 @@ public class Element extends ElementsContainer implements AbstractElement {
      * Изменение цвета
      *
      * @param element Объект класса SelenideElement
-     * @param color   Цвет элемента в hex-представлении.
      */
-    private static void changeColor(SelenideElement element, String color) {
-        executeJavaScript("arguments[0].style.backgroundColor = '" + color + "'", element);
+    private static void changeFocus(SelenideElement element) {
         executeJavaScript("arguments[0].focus()", element);
     }
 
@@ -92,15 +89,5 @@ public class Element extends ElementsContainer implements AbstractElement {
         return element.waitUntil(Condition.visible, Configuration.timeout).isDisplayed();
     }
 
-    /**
-     * Ожидание появления определенного элемента
-     *
-     * @param element Объект класса Element
-     *
-     * @return true/false в зависимости от того, получилось ли дождаться элемент на timeout
-     */
-    public static boolean elementContainsText(SelenideElement element, String text){
-        return element.waitUntil(Condition.text(text), Configuration.timeout).isDisplayed();
-    }
 
 }
