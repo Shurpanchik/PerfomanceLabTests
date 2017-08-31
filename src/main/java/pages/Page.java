@@ -23,4 +23,5 @@ public abstract class Page extends Driver {
     public void openLink(String text){
         $(By.partialLinkText(text)).click();
     }
+
 }

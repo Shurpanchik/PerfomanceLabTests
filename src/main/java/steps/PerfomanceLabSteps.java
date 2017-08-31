@@ -43,11 +43,10 @@ public class PerfomanceLabSteps {
     }
 
     /**
-     * @param fileName
+     *
+     * @param fileName - это название файла, в который запишется текст статьи
      */
     public void findArticle(String fileName) {
-
-        logger.info("Поиск ссылки perfomance lab и запись статьи в файл ");
 
         // подводим курсор к меню Продукты и услуги
         SubTopServices subTopServices = page(SubTopServices.class);
