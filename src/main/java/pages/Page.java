@@ -12,16 +12,26 @@ import org.openqa.selenium.support.PageFactory;
 import pages.perfomancelabsite.top.SubTopServices;
 
 import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.Selenide.page;
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 
-public abstract class Page extends Driver {
+public abstract class Page {
 
-    SubTopServices subTopServices;
+    protected String baseUrl;
+    public  Page (String baseUrl){
+        this.baseUrl = baseUrl;
+        page(this);
+    }
     public  Page (){
-        SubTopServices subTopServices = new SubTopServices();
+        page(this);
     }
     public void openLink(String text){
         $(By.partialLinkText(text)).click();
+    }
+
+    public void getBasePage(){
+        getWebDriver().get(baseUrl);
     }
 
 }

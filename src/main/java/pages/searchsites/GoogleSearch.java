@@ -25,16 +25,11 @@ public class GoogleSearch extends Page {
     private String baseUrl;
 
     public GoogleSearch() {
-        super();
-        baseUrl = "https://google.ru/";
+        super("https://google.ru/");
     }
 
     public void sendSearch(String text){
         logger.info("Отправляем поисковой запрос: "+text);
         searchPanel.submitKeys(text);
-    }
-
-    public void getBasePage(){
-        getWebDriver().get(baseUrl);
     }
 }

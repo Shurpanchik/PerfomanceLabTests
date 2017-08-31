@@ -14,7 +14,7 @@ public class SearchSteps {
     private static final Logger logger = LogManager.getLogger(PerfomanceLabSteps.class);
 
     public  void searchYandex(){
-        YandexSearch yandexSearch = page(YandexSearch.class);
+        YandexSearch yandexSearch = new YandexSearch();
         logger.info("Находим ссылку perfomance lab в поисковой выдаче");
         yandexSearch.getBasePage();
         // отправляем поисковый запрос перфоманс лаб
@@ -27,7 +27,7 @@ public class SearchSteps {
     }
 
     public  void searchGoogle(){
-        GoogleSearch googleSearch = page(GoogleSearch.class);
+        GoogleSearch googleSearch = new GoogleSearch();
         logger.info("Находим ссылку perfomance lab в поисковой выдаче");
         googleSearch.getBasePage();
         // отправляем поисковый запрос перфоманс лаб
@@ -39,7 +39,7 @@ public class SearchSteps {
 
     }
     public  void searchRambler(){
-        RamblerSearch ramblerSearch = page(RamblerSearch.class);
+        RamblerSearch ramblerSearch = new RamblerSearch();
         logger.info("Находим ссылку perfomance lab в поисковой выдаче");
         ramblerSearch.getBasePage();
         // отправляем поисковый запрос перфоманс лаб

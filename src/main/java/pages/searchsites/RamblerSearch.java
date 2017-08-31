@@ -25,17 +25,12 @@ public class RamblerSearch extends Page {
     private String baseUrl;
 
     public RamblerSearch() {
-        super();
-        baseUrl ="https://rambler.ru/";
+        super("https://rambler.ru/");
     }
 
     public void sendSearch(String text){
         logger.info("Отправляем поисковой запрос: "+text);
         searchPanel.submitKeys(text);
-    }
-
-    public void getBasePage(){
-        getWebDriver().get(baseUrl);
     }
 
 }

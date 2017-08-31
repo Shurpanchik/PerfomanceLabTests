@@ -22,18 +22,12 @@ public class YandexSearch extends Page{
     @FindBy(id = "text")
     TextField searchPanel;
 
-    private String baseUrl;
-
     public YandexSearch() {
-        super();
-        baseUrl = "https://yandex.ru/";
+        super("https://yandex.ru/");
     }
     public void sendSearch(String text){
         logger.info("Отправляем поисковой запрос: "+text);
         searchPanel.submitKeys(text);
     }
 
-    public void getBasePage(){
-        getWebDriver().get(baseUrl);
-    }
 }
