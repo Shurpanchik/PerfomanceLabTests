@@ -1,5 +1,7 @@
 
 import org.junit.Test;
+import org.openqa.selenium.WebElement;
+import pages.perfomancelabsite.top.SubTopServices;
 import steps.PerfomanceLabSteps;
 import steps.SearchSteps;
 
@@ -43,4 +45,25 @@ public class SearchPerfomanceLabTest extends tests.TestSignatur {
         perfomanceLabSteps.findArticle("google");
     }
 
+    @Test
+    public void  test1(){
+        getWebDriver().get("http://www.performance-lab.ru");
+        SubTopServices subTopServices = page(SubTopServices.class);
+        WebElement menu = subTopServices.getMenuTopItem("Услуги и продукты", "ТЕСТИРОВАНИЕ");
+        menu.click();
+    }
+    @Test
+    public void  test(){
+        getWebDriver().get("http://www.performance-lab.ru");
+        SubTopServices subTopServices = page(SubTopServices.class);
+        WebElement menu = subTopServices.getMenuTopItem("Вакансии", "Карьера");
+        menu.click();
+    }
+    @Test
+    public void  test2(){
+        getWebDriver().get("http://www.performance-lab.ru");
+        SubTopServices subTopServices = page(SubTopServices.class);
+        WebElement menu = subTopServices.getMenuTopItem("Блог", "Карьера");
+        menu.click();
+    }
 }
