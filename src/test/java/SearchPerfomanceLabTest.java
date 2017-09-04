@@ -46,24 +46,19 @@ public class SearchPerfomanceLabTest extends tests.TestSignatur {
     }
 
     @Test
-    public void  test1(){
+    public void  openElementSubMenuServiciesAndProducts(){
         getWebDriver().get("http://www.performance-lab.ru");
         SubTopServices subTopServices = page(SubTopServices.class);
+        subTopServices.openSubMenu("Услуги и продукты");
         WebElement menu = subTopServices.getMenuTopItem("Услуги и продукты", "ТЕСТИРОВАНИЕ");
         menu.click();
     }
     @Test
-    public void  test(){
+    public void  openElementSubMenuVacancies(){
         getWebDriver().get("http://www.performance-lab.ru");
         SubTopServices subTopServices = page(SubTopServices.class);
-        WebElement menu = subTopServices.getMenuTopItem("Вакансии", "Карьера");
-        menu.click();
-    }
-    @Test
-    public void  test2(){
-        getWebDriver().get("http://www.performance-lab.ru");
-        SubTopServices subTopServices = page(SubTopServices.class);
-        WebElement menu = subTopServices.getMenuTopItem("Блог", "Карьера");
+        subTopServices.openSubMenu("Вакансии");
+        WebElement menu = subTopServices.getMenuTopItem("Вакансии", "Карьера в перфоманс лаб");
         menu.click();
     }
 }

@@ -50,10 +50,11 @@ public class PerfomanceLabSteps {
 
         // подводим курсор к меню Продукты и услуги
         SubTopServices subTopServices = page(SubTopServices.class);
-        subTopServices.openSubTop();
+        subTopServices.openSubMenu("Услуги и продукты");
 
         // в меню переходим в раздел тестирование
-        openElementMenu(subTopServices.getTesting());
+        WebElement menu = subTopServices.getMenuTopItem("Услуги и продукты", "ТЕСТИРОВАНИЕ");
+        menu.click();
 
         // переходим в меню Автоматизация тестирования
 

@@ -1,7 +1,5 @@
 package pages.perfomancelabsite.top;
 
-import Listener.EventListener;
-import com.codeborne.selenide.ElementsCollection;
 import elements.Element;
 import lombok.Getter;
 import lombok.Setter;
@@ -9,9 +7,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import pages.Page;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.interactions.Actions;
 
 import java.util.List;
@@ -36,42 +32,18 @@ public class SubTopServices {
         super();
     }
 
-    public void openSubTop(){
-        Actions actions = new Actions(getWebDriver());
-        //actions.moveToElement(root).build().perform();
-        root.click();
-    }
-
     /**
-     * Метод получения элемента в выпадающем меню
+     * Метод получения элемента в выпадающем меню по названию меню и названию элемента подменю
      * @param topItem
      * @param subTopItem
      * @return
      */
     public WebElement getMenuTopItem(String topItem, String subTopItem){
         try {
-            $(By.id("nav"))
-                    .$(By.partialLinkText(topItem)).click();
+            String topLocator = getCSSLocatorSubMenu(topItem);
+            WebElement top = $(By.cssSelector(topLocator));
 
-            List<WebElement> webElements = $(By.id("nav")).findElements(By.tagName("li"));
-
-            WebElement top = null;
-
-            for (int i = 0; i < webElements.size(); i++) {
-                try {
-                    System.out.println(webElements.get(i).findElement(By.tagName("a")).getText().toLowerCase());
-                    if (webElements.get(i).findElement(By.tagName("a")).getText().toLowerCase()
-                            .equals(topItem.toLowerCase())) {
-                        top = webElements.get(i).findElement(By.className("sub-menu"));
-                        top = $(By.cssSelector(".one_item_menu"));
-                        return  getSubTop(top, subTopItem);
-                    }
-                } catch (Exception exx) {
-                    continue;
-                }
-            }
-            top = $(By.cssSelector(".one_item_menu"));
-            return getSubTop(top, subTopItem);
+            return getSubTopElement(top, subTopItem);
         }
         catch (Exception exx){
             return null;
@@ -79,12 +51,12 @@ public class SubTopServices {
     }
 
     /**
-     * поиск название подраздела
+     * получение элемента на выпадающей панели по панеле и названию пункта меню
      * @param container
      * @param subTopItem
      * @return
      */
-    private WebElement getSubTop(WebElement container, String subTopItem) {
+    private WebElement getSubTopElement(WebElement container, String subTopItem) {
         try {
             List<WebElement> webElements = container
                     .findElements(By.tagName("li"));
@@ -93,7 +65,7 @@ public class SubTopServices {
 
             for (int i = 0; i < webElements.size(); i++) {
                 try {
-                    System.out.println(webElements.get(i).findElement(By.tagName("a")).getText().toLowerCase());
+                    System.out.println(webElements.get(i).findElement(By.tagName("a")).getText().toLowerCase() +" "+subTopItem);
                     if (webElements.get(i).findElement(By.tagName("a")).getText().toLowerCase()
                             .equals(subTopItem.toLowerCase())) {
                         return webElements.get(i).findElement(By.tagName("a"));
@@ -107,5 +79,27 @@ public class SubTopServices {
         catch(Exception exx){
             return null;
         }
+    }
+    /**
+     * поиск локатора выпадающей панели
+     * @param topItem
+     * @return
+     */
+    private String getCSSLocatorSubMenu(String topItem){
+        switch (topItem.toLowerCase()){
+            case "тренинги": return ".three_item_menu";
+            case "услуги и продукты": return ".one_item_menu";
+            case "вакансии": return ".two_item_menu";
+            default: return null;
+        }
+    }
+    /**
+     * Открывает панель выбранного элемента меню
+     * @param topItem
+     * @return
+     */
+    public void openSubMenu(String topItem) {
+        $(By.id("nav"))
+                .$(By.partialLinkText(topItem)).click();
     }
 }
