@@ -1,11 +1,12 @@
 package pages.perfomancelabsite.top;
 
+import com.codeborne.selenide.ElementsCollection;
+import com.codeborne.selenide.SelenideElement;
 import elements.Element;
 import lombok.Getter;
 import lombok.Setter;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.By;
 import org.openqa.selenium.interactions.Actions;
@@ -38,10 +39,9 @@ public class SubTopServices {
      * @param subTopItem
      * @return
      */
-    public WebElement getMenuTopItem(String topItem, String subTopItem){
+    public SelenideElement getMenuTopItem(String topItem, String subTopItem){
         try {
-            String topLocator = getCSSLocatorSubMenu(topItem);
-            WebElement top = $(By.cssSelector(topLocator));
+            SelenideElement top = $(getCSSLocatorSubMenu(topItem));
 
             return getSubTopElement(top, subTopItem);
         }
@@ -56,25 +56,20 @@ public class SubTopServices {
      * @param subTopItem
      * @return
      */
-    private WebElement getSubTopElement(WebElement container, String subTopItem) {
+    private SelenideElement getSubTopElement(SelenideElement container, String subTopItem) {
         try {
-            List<WebElement> webElements = container
-                    .findElements(By.tagName("li"));
+            ElementsCollection selenideElements = container.$$(By.tagName("li"));
 
-            WebElement element = null;
+            SelenideElement element;
 
-            for (int i = 0; i < webElements.size(); i++) {
-                try {
-                    System.out.println(webElements.get(i).findElement(By.tagName("a")).getText().toLowerCase() +" "+subTopItem);
-                    if (webElements.get(i).findElement(By.tagName("a")).getText().toLowerCase()
-                            .equals(subTopItem.toLowerCase())) {
-                        return webElements.get(i).findElement(By.tagName("a"));
-                    }
-                } catch (Exception exx) {
-                    continue;
-                }
+            for (SelenideElement selenideElement : selenideElements) {
+                 element = selenideElement.$(By.tagName("a"));
+                 if(element!=null &&
+                         element.getText().toLowerCase().equals(subTopItem.toLowerCase())) {
+                     return element;
+                 }
             }
-            return element;
+            return null;
         }
         catch(Exception exx){
             return null;
@@ -85,11 +80,11 @@ public class SubTopServices {
      * @param topItem
      * @return
      */
-    private String getCSSLocatorSubMenu(String topItem){
+    private By getCSSLocatorSubMenu(String topItem){
         switch (topItem.toLowerCase()){
-            case "тренинги": return ".three_item_menu";
-            case "услуги и продукты": return ".one_item_menu";
-            case "вакансии": return ".two_item_menu";
+            case "тренинги": return By.cssSelector(".three_item_menu");
+            case "услуги и продукты": return By.cssSelector(".one_item_menu");
+            case "вакансии": return By.cssSelector(".two_item_menu");
             default: return null;
         }
     }

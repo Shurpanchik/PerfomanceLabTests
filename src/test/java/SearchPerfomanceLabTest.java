@@ -1,4 +1,5 @@
 
+import com.codeborne.selenide.SelenideElement;
 import org.junit.Test;
 import org.openqa.selenium.WebElement;
 import pages.perfomancelabsite.top.SubTopServices;
@@ -50,7 +51,7 @@ public class SearchPerfomanceLabTest extends tests.TestSignatur {
         getWebDriver().get("http://www.performance-lab.ru");
         SubTopServices subTopServices = page(SubTopServices.class);
         subTopServices.openSubMenu("Услуги и продукты");
-        WebElement menu = subTopServices.getMenuTopItem("Услуги и продукты", "ТЕСТИРОВАНИЕ");
+        SelenideElement menu = subTopServices.getMenuTopItem("Услуги и продукты", "ТЕСТИРОВАНИЕ");
         menu.click();
     }
     @Test
@@ -58,7 +59,7 @@ public class SearchPerfomanceLabTest extends tests.TestSignatur {
         getWebDriver().get("http://www.performance-lab.ru");
         SubTopServices subTopServices = page(SubTopServices.class);
         subTopServices.openSubMenu("Вакансии");
-        WebElement menu = subTopServices.getMenuTopItem("Вакансии", "Карьера в перфоманс лаб");
+        SelenideElement menu = subTopServices.getMenuTopItem("Вакансии", "Карьера в перфоманс лаб");
         menu.click();
     }
 }

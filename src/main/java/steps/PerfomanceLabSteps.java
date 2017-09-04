@@ -4,10 +4,10 @@ import Listener.EventListener;
 import elements.Element;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.openqa.selenium.WebElement;
 import pages.perfomancelabsite.pages.AvtomatizacijaTestirovanijaPage;
 import pages.perfomancelabsite.pages.SoftwareTestingPage;
 import pages.perfomancelabsite.top.SubTopServices;
+import com.codeborne.selenide.SelenideElement;
 
 import java.io.FileWriter;
 import java.io.IOException;
@@ -53,7 +53,7 @@ public class PerfomanceLabSteps {
         subTopServices.openSubMenu("Услуги и продукты");
 
         // в меню переходим в раздел тестирование
-        WebElement menu = subTopServices.getMenuTopItem("Услуги и продукты", "ТЕСТИРОВАНИЕ");
+        SelenideElement menu = subTopServices.getMenuTopItem("Услуги и продукты", "ТЕСТИРОВАНИЕ");
         menu.click();
 
         // переходим в меню Автоматизация тестирования
