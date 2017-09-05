@@ -3,6 +3,7 @@ package elements;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import ru.yandex.qatools.allure.annotations.Step;
 
 
 /**
@@ -19,6 +20,7 @@ public class TextField extends Element {
      */
     private static final Logger logger = LogManager.getLogger(TextField.class);
 
+    @Step
     public void submitKeys(String text) {
         try {
             logger.info("Заполнение поля " + getLocator() + " данными: " + text);

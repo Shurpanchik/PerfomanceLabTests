@@ -8,6 +8,7 @@ import pages.perfomancelabsite.pages.AvtomatizacijaTestirovanijaPage;
 import pages.perfomancelabsite.pages.SoftwareTestingPage;
 import pages.perfomancelabsite.top.SubTopServices;
 import com.codeborne.selenide.SelenideElement;
+import ru.yandex.qatools.allure.annotations.Step;
 
 import java.io.FileWriter;
 import java.io.IOException;
@@ -22,10 +23,12 @@ public class PerfomanceLabSteps {
     public PerfomanceLabSteps(){
 
     }
+    @Step
     public  void openElementMenu (Element element){
         element.click();
     }
 
+    @Step
     public void writeArticleStep(String text,String fileName){
         try {
             logger.info("Записываем текст статьи в файл: "+fileName);
@@ -46,6 +49,8 @@ public class PerfomanceLabSteps {
      *
      * @param fileName - это название файла, в который запишется текст статьи
      */
+
+    @Step
     public void findArticle(String fileName) {
 
         // подводим курсор к меню Продукты и услуги

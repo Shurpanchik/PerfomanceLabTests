@@ -1,18 +1,17 @@
 package steps;
 
+import ru.yandex.qatools.allure.annotations.Step;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import pages.searchsites.GoogleSearch;
 import pages.searchsites.RamblerSearch;
 import pages.searchsites.YandexSearch;
 
-import static com.codeborne.selenide.Selenide.page;
-import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
-import static org.junit.Assert.fail;
 
 public class SearchSteps {
     private static final Logger logger = LogManager.getLogger(PerfomanceLabSteps.class);
 
+    @Step
     public  void searchYandex(){
         YandexSearch yandexSearch = new YandexSearch();
         logger.info("Находим ссылку perfomance lab в поисковой выдаче");
@@ -25,7 +24,7 @@ public class SearchSteps {
 
 
     }
-
+    @Step
     public  void searchGoogle(){
         GoogleSearch googleSearch = new GoogleSearch();
         logger.info("Находим ссылку perfomance lab в поисковой выдаче");
@@ -38,6 +37,7 @@ public class SearchSteps {
 
 
     }
+    @Step
     public  void searchRambler(){
         RamblerSearch ramblerSearch = new RamblerSearch();
         logger.info("Находим ссылку perfomance lab в поисковой выдаче");

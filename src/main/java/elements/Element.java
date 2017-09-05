@@ -7,6 +7,7 @@ import com.codeborne.selenide.SelenideElement;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
+import ru.yandex.qatools.allure.annotations.Step;
 
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.executeJavaScript;
@@ -22,6 +23,7 @@ public class Element extends ElementsContainer {
     /**
      * Клик по произвольному элементу
      */
+    @Step
     public void click() {
         try {
            logger.info("Клик по элементу с локатором: " + getLocator());

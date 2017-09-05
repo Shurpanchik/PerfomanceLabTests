@@ -3,6 +3,8 @@ import com.codeborne.selenide.SelenideElement;
 import org.junit.Test;
 import org.openqa.selenium.WebElement;
 import pages.perfomancelabsite.top.SubTopServices;
+import ru.yandex.qatools.allure.annotations.Description;
+import ru.yandex.qatools.allure.annotations.Title;
 import steps.PerfomanceLabSteps;
 import steps.SearchSteps;
 
@@ -62,4 +64,5 @@ public class SearchPerfomanceLabTest extends tests.TestSignatur {
         SelenideElement menu = subTopServices.getMenuTopItem("Вакансии", "Карьера в перфоманс лаб");
         menu.click();
     }
+
 }
